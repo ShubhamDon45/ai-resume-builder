@@ -1,0 +1,71 @@
+<%- include('../layouts/header') %>
+
+<section class="resume-view-section">
+  <div class="container">
+    <div class="resume-view-toolbar">
+      <a href="/resume/dashboard" class="btn btn-secondary">&larr; Back to Dashboard</a>
+      <div class="toolbar-actions">
+        <a href="/pdf/resume/<%= resume.id %>" class="btn btn-primary">📥 Download PDF</a>
+        <a href="/resume/<%= resume.id %>/edit" class="btn btn-outline">Edit Resume</a>
+        <form action="/resume/<%= resume.id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this resume?');" class="inline-form">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="resume-paper">
+      <header class="paper-header">
+        <h1 class="paper-name"><%= resume.fullName %></h1>
+        <div class="paper-contact">
+          <span>📧 <%= resume.email %></span>
+          <% if (resume.phone) { %>
+            <span>• 📞 <%= resume.phone %></span>
+          <% } %>
+        </div>
+      </header>
+
+      <hr class="paper-divider">
+
+      <% if (resume.summary) { %>
+        <section class="paper-section">
+          <h2 class="paper-section-title">Professional Summary</h2>
+          <p class="paper-text"><%= resume.summary %></p>
+        </section>
+      <% } %>
+
+      <% if (resume.skills) { %>
+        <section class="paper-section">
+          <h2 class="paper-section-title">Skills</h2>
+          <div class="paper-skills-list">
+            <% resume.skills.split(',').forEach(skill => { %>
+              <span class="skill-tag"><%= skill.trim() %></span>
+            <% }); %>
+          </div>
+        </section>
+      <% } %>
+
+      <% if (resume.experience) { %>
+        <section class="paper-section">
+          <h2 class="paper-section-title">Work Experience</h2>
+          <div class="paper-pre"><%= resume.experience %></div>
+        </section>
+      <% } %>
+
+      <% if (resume.education) { %>
+        <section class="paper-section">
+          <h2 class="paper-section-title">Education</h2>
+          <div class="paper-pre"><%= resume.education %></div>
+        </section>
+      <% } %>
+
+      <% if (resume.projects) { %>
+        <section class="paper-section">
+          <h2 class="paper-section-title">Projects</h2>
+          <div class="paper-pre"><%= resume.projects %></div>
+        </section>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<%- include('../layouts/footer') %>

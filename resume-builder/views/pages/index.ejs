@@ -1,0 +1,22 @@
+<%- include('../layouts/header') %>
+
+<section class="hero-section">
+  <div class="container hero-container">
+    <div class="hero-badge">AI Powered Resume Generation</div>
+    <h1 class="hero-title">Build Your Dream Resume with <span class="accent-text">AI Precision</span></h1>
+    <p class="hero-description">
+      Create tailored, ATS-friendly resumes in minutes. AI-driven suggestions, professional templates, and seamless PDF export to land your next dream role.
+    </p>
+
+    <div class="hero-actions">
+      <% if (typeof user !== 'undefined' && user) { %>
+        <a href="/dashboard" class="btn btn-primary">Go to Dashboard</a>
+      <% } else { %>
+        <a href="/auth/register" class="btn btn-primary">Get Started Free</a>
+        <a href="/auth/login" class="btn btn-secondary">Sign In</a>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<%- include('../layouts/footer') %>

@@ -1,0 +1,39 @@
+// Prisma Schema Configuration
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  resumes   Resume[]
+}
+
+model Resume {
+  id         String   @id @default(uuid())
+  title      String
+  fullName   String
+  email      String
+  phone      String?
+  summary    String?
+  skills     String?
+  education  String?
+  experience String?
+  projects   String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

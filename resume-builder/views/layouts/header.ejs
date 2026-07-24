@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title : 'AI Resume Builder' %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo">
+        <span class="logo-icon">✨</span>
+        <span class="logo-text">ResuCraft <span class="accent-text">AI</span></span>
+      </a>
+      <nav class="nav-links">
+        <% if (typeof user !== 'undefined' && user) { %>
+          <a href="/resume/dashboard" class="nav-item">Dashboard</a>
+          <a href="/resume/create" class="nav-item nav-item-btn-primary">+ Create Resume</a>
+          <a href="/auth/logout" class="nav-item nav-item-btn-secondary">Logout</a>
+        <% } else { %>
+          <a href="/auth/login" class="nav-item">Login</a>
+          <a href="/auth/register" class="nav-item nav-item-btn-secondary">Register</a>
+          <a href="/resume/dashboard" class="nav-item nav-item-btn-primary">Dashboard</a>
+        <% } %>
+      </nav>
+    </div>
+  </header>
+  <main class="main-content">

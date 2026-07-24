@@ -1,0 +1,146 @@
+<%- include('../layouts/header') %>
+
+<section class="form-section">
+  <div class="container form-container">
+    <div class="form-card">
+      <div class="form-header">
+        <h2>Create New Resume</h2>
+        <p>Fill in your details below or use AI assistants to polish your content</p>
+      </div>
+
+      <div id="ai-alert" class="alert" style="display: none;"></div>
+
+      <% if (typeof error !== 'undefined' && error) { %>
+        <div class="alert alert-error">
+          <span><%= error %></span>
+        </div>
+      <% } %>
+
+      <form action="/resume/create" method="POST" class="resume-form">
+        <div class="form-group">
+          <label for="title">Resume Title / Target Role *</label>
+          <input 
+            type="text" 
+            id="title" 
+            name="title" 
+            class="form-control" 
+            placeholder="e.g. Senior Full Stack Developer Resume" 
+            value="<%= typeof formData !== 'undefined' && formData.title ? formData.title : '' %>"
+            required
+          >
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input 
+              type="text" 
+              id="fullName" 
+              name="fullName" 
+              class="form-control" 
+              placeholder="John Doe" 
+              value="<%= typeof formData !== 'undefined' && formData.fullName ? formData.fullName : '' %>"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-control" 
+              placeholder="john@example.com" 
+              value="<%= typeof formData !== 'undefined' && formData.email ? formData.email : '' %>"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input 
+              type="text" 
+              id="phone" 
+              name="phone" 
+              class="form-control" 
+              placeholder="+1 (555) 000-0000" 
+              value="<%= typeof formData !== 'undefined' && formData.phone ? formData.phone : '' %>"
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="form-group-header">
+            <label for="summary">Professional Summary</label>
+            <button type="button" id="btn-ai-summary" class="btn btn-ai-sm">✨ Generate with AI</button>
+          </div>
+          <textarea 
+            id="summary" 
+            name="summary" 
+            rows="4" 
+            class="form-control" 
+            placeholder="Briefly describe your career background, expertise, and key accomplishments..."
+          ><%= typeof formData !== 'undefined' && formData.summary ? formData.summary : '' %></textarea>
+        </div>
+
+        <div class="form-group">
+          <div class="form-group-header">
+            <label for="skills">Skills</label>
+            <button type="button" id="btn-ai-skills" class="btn btn-ai-sm">✨ Suggest Skills</button>
+          </div>
+          <textarea 
+            id="skills" 
+            name="skills" 
+            rows="3" 
+            class="form-control" 
+            placeholder="Node.js, Express.js, PostgreSQL, React, JavaScript, HTML5, CSS3, Docker, Git"
+          ><%= typeof formData !== 'undefined' && formData.skills ? formData.skills : '' %></textarea>
+        </div>
+
+        <div class="form-group">
+          <div class="form-group-header">
+            <label for="experience">Work Experience</label>
+            <button type="button" id="btn-ai-experience" class="btn btn-ai-sm">✨ Improve with AI</button>
+          </div>
+          <textarea 
+            id="experience" 
+            name="experience" 
+            rows="5" 
+            class="form-control" 
+            placeholder="Senior Developer at Tech Corp (2022 - Present)&#10;- Led backend development using Express and PostgreSQL&#10;- Optimized database query performance by 40%"
+          ><%= typeof formData !== 'undefined' && formData.experience ? formData.experience : '' %></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="education">Education</label>
+          <textarea 
+            id="education" 
+            name="education" 
+            rows="3" 
+            class="form-control" 
+            placeholder="B.S. in Computer Science - University Name (2018 - 2022)"
+          ><%= typeof formData !== 'undefined' && formData.education ? formData.education : '' %></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="projects">Projects</label>
+          <textarea 
+            id="projects" 
+            name="projects" 
+            rows="4" 
+            class="form-control" 
+            placeholder="AI Resume Builder - Full stack application built with Express, EJS, and Prisma"
+          ><%= typeof formData !== 'undefined' && formData.projects ? formData.projects : '' %></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save Resume</button>
+          <a href="/resume/dashboard" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('../layouts/footer') %>

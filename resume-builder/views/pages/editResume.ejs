@@ -1,0 +1,137 @@
+<%- include('../layouts/header') %>
+
+<section class="form-section">
+  <div class="container form-container">
+    <div class="form-card">
+      <div class="form-header">
+        <h2>Edit Resume</h2>
+        <p>Update your information for "<%= resume.title %>" or refine it with AI</p>
+      </div>
+
+      <div id="ai-alert" class="alert" style="display: none;"></div>
+
+      <% if (typeof error !== 'undefined' && error) { %>
+        <div class="alert alert-error">
+          <span><%= error %></span>
+        </div>
+      <% } %>
+
+      <form action="/resume/<%= resume.id %>/update" method="POST" class="resume-form">
+        <div class="form-group">
+          <label for="title">Resume Title / Target Role *</label>
+          <input 
+            type="text" 
+            id="title" 
+            name="title" 
+            class="form-control" 
+            value="<%= resume.title %>"
+            required
+          >
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input 
+              type="text" 
+              id="fullName" 
+              name="fullName" 
+              class="form-control" 
+              value="<%= resume.fullName %>"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-control" 
+              value="<%= resume.email %>"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input 
+              type="text" 
+              id="phone" 
+              name="phone" 
+              class="form-control" 
+              value="<%= resume.phone || '' %>"
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="form-group-header">
+            <label for="summary">Professional Summary</label>
+            <button type="button" id="btn-ai-summary" class="btn btn-ai-sm">✨ Generate with AI</button>
+          </div>
+          <textarea 
+            id="summary" 
+            name="summary" 
+            rows="4" 
+            class="form-control"
+          ><%= resume.summary || '' %></textarea>
+        </div>
+
+        <div class="form-group">
+          <div class="form-group-header">
+            <label for="skills">Skills</label>
+            <button type="button" id="btn-ai-skills" class="btn btn-ai-sm">✨ Suggest Skills</button>
+          </div>
+          <textarea 
+            id="skills" 
+            name="skills" 
+            rows="3" 
+            class="form-control"
+          ><%= resume.skills || '' %></textarea>
+        </div>
+
+        <div class="form-group">
+          <div class="form-group-header">
+            <label for="experience">Work Experience</label>
+            <button type="button" id="btn-ai-experience" class="btn btn-ai-sm">✨ Improve with AI</button>
+          </div>
+          <textarea 
+            id="experience" 
+            name="experience" 
+            rows="5" 
+            class="form-control"
+          ><%= resume.experience || '' %></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="education">Education</label>
+          <textarea 
+            id="education" 
+            name="education" 
+            rows="3" 
+            class="form-control"
+          ><%= resume.education || '' %></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="projects">Projects</label>
+          <textarea 
+            id="projects" 
+            name="projects" 
+            rows="4" 
+            class="form-control"
+          ><%= resume.projects || '' %></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Update Resume</button>
+          <a href="/resume/<%= resume.id %>" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('../layouts/footer') %>

@@ -1,0 +1,37 @@
+{
+  "name": "ai-resume-builder",
+  "version": "1.0.0",
+  "description": "A GitHub-ready AI Resume Builder built with Node.js, Express, EJS, PostgreSQL, and Prisma.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "resume-builder",
+    "ai",
+    "nodejs",
+    "express",
+    "ejs",
+    "prisma",
+    "postgresql",
+    "pdfkit"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "openai": "^4.73.0",
+    "pdfkit": "^0.15.0",
+    "prisma": "^5.22.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
