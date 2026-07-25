@@ -21,36 +21,47 @@
       <% } %>
 
       <form action="/auth/login" method="POST" class="auth-form">
+
+        <!-- Email -->
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            class="form-control" 
-            placeholder="john@example.com" 
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="example@gmail.com"
             value="<%= typeof formData !== 'undefined' && formData.email ? formData.email : '' %>"
+            pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+            title="Please enter a valid Gmail address"
             required
           >
         </div>
 
+        <!-- Password -->
         <div class="form-group">
           <label for="password">Password</label>
-          <input 
-            type="password" 
-            id="password" 
-            name="password" 
-            class="form-control" 
-            placeholder="••••••••" 
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="••••••••"
             required
           >
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        <button type="submit" class="btn btn-primary btn-block">
+          Sign In
+        </button>
+
       </form>
 
       <div class="auth-footer">
-        <p>Don't have an account? <a href="/auth/register" class="auth-link">Register here</a></p>
+        <p>
+          Don't have an account?
+          <a href="/auth/register" class="auth-link">Register here</a>
+        </p>
       </div>
     </div>
   </div>
