@@ -1,5 +1,12 @@
 {
+  "version": 2,
   "buildCommand": "cd resume-builder && npm install && npx prisma generate",
   "outputDirectory": "resume-builder",
-  "framework": "express"
+  "public": "resume-builder/public",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/server.js"
+    }
+  ]
 }
