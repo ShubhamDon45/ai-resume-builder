@@ -8,10 +8,9 @@
     }
   },
   "env": {
-    "DATABASE_URL": "@database_url",
-    "JWT_SECRET": "@jwt_secret",
-    "OPENAI_API_KEY": "@openai_api_key",
-    "NODE_ENV": "production"
+    "NODE_ENV": {
+      "value": "production"
+    }
   },
   "headers": [
     {
