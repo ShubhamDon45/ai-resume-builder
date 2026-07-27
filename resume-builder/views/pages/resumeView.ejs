@@ -5,7 +5,7 @@
     <div class="resume-view-toolbar">
       <a href="/resume/dashboard" class="btn btn-secondary">&larr; Back to Dashboard</a>
       <div class="toolbar-actions">
-        <a href="/pdf/resume/<%= resume.id %>" class="btn btn-primary">📥 Download PDF</a>
+        <a href="/pdf/resume/<%= resume.id %>" class="btn btn-primary"> Download PDF</a>
         <a href="/resume/<%= resume.id %>/edit" class="btn btn-outline">Edit Resume</a>
         <form action="/resume/<%= resume.id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this resume?');" class="inline-form">
           <button type="submit" class="btn btn-danger">Delete</button>
@@ -17,9 +17,9 @@
       <header class="paper-header">
         <h1 class="paper-name"><%= resume.fullName %></h1>
         <div class="paper-contact">
-          <span>📧 <%= resume.email %></span>
+          <span> <%= resume.email %></span>
           <% if (resume.phone) { %>
-            <span>• 📞 <%= resume.phone %></span>
+            <span>• <%= resume.phone %></span>
           <% } %>
         </div>
       </header>
