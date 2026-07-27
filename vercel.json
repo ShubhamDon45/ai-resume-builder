@@ -1,0 +1,27 @@
+{
+  "buildCommand": "cd resume-builder && npm install && npx prisma generate",
+  "outputDirectory": "resume-builder",
+  "framework": "express",
+  "functions": {
+    "resume-builder/server.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "JWT_SECRET": "@jwt_secret",
+    "OPENAI_API_KEY": "@openai_api_key",
+    "NODE_ENV": "production"
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
