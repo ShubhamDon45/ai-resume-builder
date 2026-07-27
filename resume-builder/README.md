@@ -1,29 +1,29 @@
-# AI Resume Builder 🚀
+# AI Resume Builder 
 
 A full-stack, production-grade AI-powered Resume Builder application built with **Node.js**, **Express.js**, **EJS**, **PostgreSQL**, and **Prisma ORM**, strictly following the **Model-View-Controller (MVC)** architectural pattern.
 
 ---
 
-## 📌 Overview
+## Overview
 
 The **AI Resume Builder** empowers job seekers to construct ATS-optimized, high-impact resumes in minutes. Featuring secure JWT-based authentication, complete resume lifecycle management (CRUD), AI-powered summary & skill suggestions via OpenAI, and vector-rendered PDF document export.
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔒 **Secure Authentication**: User registration and login powered by `bcrypt` password hashing and secure `httpOnly` JWT cookies.
-- 📄 **Full Resume Management (CRUD)**: Create, view, edit, update, and delete custom resumes associated with user accounts.
-- 🤖 **AI Resume Assistant**:
+-  **Secure Authentication**: User registration and login powered by `bcrypt` password hashing and secure `httpOnly` JWT cookies.
+- **Full Resume Management (CRUD)**: Create, view, edit, update, and delete custom resumes associated with user accounts.
+-  **AI Resume Assistant**:
   - **Generate Summary**: AI creates tailored professional summaries based on candidate background.
   - **Improve Experience**: AI transforms raw work history into impact-driven bullet points using action verbs.
   - **Suggest Skills**: AI recommends top industry skills for target job roles.
-- 📥 **PDF Document Export**: Instant downloadable, beautifully styled PDF resumes generated via `PDFKit`.
-- 🎨 **Modern Responsive UI**: Custom CSS with glassmorphism effects, crisp typography, and dark-mode aesthetic.
+-  **PDF Document Export**: Instant downloadable, beautifully styled PDF resumes generated via `PDFKit`.
+-  **Modern Responsive UI**: Custom CSS with glassmorphism effects, crisp typography, and dark-mode aesthetic.
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **Frontend**: EJS (Embedded JavaScript), HTML5, CSS3 (Vanilla), Vanilla JavaScript
 - **Backend**: Node.js, Express.js
@@ -35,7 +35,7 @@ The **AI Resume Builder** empowers job seekers to construct ATS-optimized, high-
 
 ---
 
-## 🏗 Application Architecture & Folder Structure
+##  Application Architecture & Folder Structure
 
 ```text
 resume-builder/
@@ -98,7 +98,7 @@ resume-builder/
 
 ---
 
-## ⚡ Installation & Setup
+##  Installation & Setup
 
 ### Prerequisites
 
@@ -152,7 +152,7 @@ Ensure you have the following installed locally:
 
 ---
 
-## 🔗 API Documentation
+##  API Documentation
 
 ### Authentication Routes (`/auth`)
 | Method | Endpoint | Description | Access |
@@ -186,16 +186,9 @@ Ensure you have the following installed locally:
 |---|---|---|---|
 | `GET` | `/pdf/resume/:id` | Generate and download resume as PDF | Private (Owner) |
 
----
 
-## 🖼 Screenshots
+##  Future Improvements
 
-*(Place application screenshots here)*
-
----
-
-## 🚀 Future Improvements
-
-- 🎨 Multiple resume design themes and color template selector.
-- 🔗 Shareable public link for online resume portfolios.
-- 📊 ATS Compatibility score checker.
+-  Multiple resume design themes and color template selector.
+-  Shareable public link for online resume portfolios.
+-  ATS Compatibility score checker.
