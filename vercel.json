@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "buildCommand": "cd resume-builder && npm install && npx prisma generate",
-  "outputDirectory": "resume-builder/.vercel/output",
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/server.js"
+      "src": "resume-builder/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "resume-builder/server.js"
     }
   ]
 }
