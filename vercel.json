@@ -2,7 +2,6 @@
   "version": 2,
   "buildCommand": "cd resume-builder && npm install && npx prisma generate",
   "outputDirectory": "resume-builder",
-  "public": "resume-builder/public",
   "routes": [
     {
       "src": "/(.*)",
