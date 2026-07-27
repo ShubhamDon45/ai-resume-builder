@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      setLoadingState(btnAiSummary, true, '✨ Generate with AI');
+      setLoadingState(btnAiSummary, true, 'Generate with AI');
 
       try {
         const response = await fetch('/ai/generate-summary', {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         showAlert(err.message || 'An error occurred while generating AI summary.');
       } finally {
-        setLoadingState(btnAiSummary, false, '✨ Generate with AI');
+        setLoadingState(btnAiSummary, false, 'Generate with AI');
       }
     });
   }
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      setLoadingState(btnAiSkills, true, '✨ Suggest Skills');
+      setLoadingState(btnAiSkills, true, 'Suggest Skills');
 
       try {
         const response = await fetch('/ai/generate-skills', {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         showAlert(err.message || 'An error occurred while suggesting skills.');
       } finally {
-        setLoadingState(btnAiSkills, false, '✨ Suggest Skills');
+        setLoadingState(btnAiSkills, false, 'Suggest Skills');
       }
     });
   }
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      setLoadingState(btnAiExperience, true, '✨ Improve with AI');
+      setLoadingState(btnAiExperience, true, 'Improve with AI');
 
       try {
         const response = await fetch('/ai/improve-experience', {
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         showAlert(err.message || 'An error occurred while improving experience.');
       } finally {
-        setLoadingState(btnAiExperience, false, '✨ Improve with AI');
+        setLoadingState(btnAiExperience, false, 'Improve with AI');
       }
     });
   }
