@@ -1,0 +1,27 @@
+name: Prisma Migrate
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'resume-builder/prisma/**'
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: cd resume-builder && npm install
+      
+      - name: Run Prisma migrate
+        run: cd resume-builder && npx prisma migrate deploy
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
